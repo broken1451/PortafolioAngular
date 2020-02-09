@@ -12,13 +12,19 @@ export class InfoPaginaService {
 
   public info: InfoPagina ;
   public caragada: boolean;
+  public equipo: any[];
 
   constructor(public httCliente: HttpClient) {
     console.log('Servicio de info pagina funciona');
 
     this.info = {};
+    this.cargarInformacion();
+    this.cargarEquipo();
+  }
 
-    // leer archivo
+
+   private cargarInformacion(){
+      // leer archivo
     let url = 'assets/data/data-pagina.json';
     this.caragada = false;
     this.httCliente.get(url).subscribe((res: InfoPagina) => {
@@ -28,10 +34,16 @@ export class InfoPaginaService {
       this.info = res;
       console.log('this.info:', this.info);
     });
+   }
+
+
+  private cargarEquipo() {
+    let url = 'https://angular-html-c7f64.firebaseio.com/equipo.json';
+    this.httCliente.get(url).subscribe((res: any) => {
+      console.log('res cargarEquipo', res);
+      this.equipo = res;
+    });
   }
-
-
-
 
 
 

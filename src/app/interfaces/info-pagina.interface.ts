@@ -9,3 +9,13 @@ export interface InfoPagina {
     tumbler?: string;
     equipoDeTrabajo?: any[];
 }
+
+
+
+
+export interface Producto {
+    categoria: string;
+    cod: string;
+    titulo: string;
+    url: string;
+}
