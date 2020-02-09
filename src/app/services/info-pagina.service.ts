@@ -11,7 +11,7 @@ import { InfoPagina } from '../interfaces/info-pagina.interface';
 export class InfoPaginaService {
 
   public info: InfoPagina ;
-  public caragada: boolean;
+  public cargada: boolean;
   public equipo: any[];
 
   constructor(public httCliente: HttpClient) {
@@ -26,11 +26,11 @@ export class InfoPaginaService {
    private cargarInformacion(){
       // leer archivo
     let url = 'assets/data/data-pagina.json';
-    this.caragada = false;
+    this.cargada = false;
     this.httCliente.get(url).subscribe((res: InfoPagina) => {
       console.log('data:', res);
       // console.log('data:', res['facebook']);
-      this.caragada = false;
+      this.cargada = false;
       this.info = res;
       console.log('this.info:', this.info);
     });
