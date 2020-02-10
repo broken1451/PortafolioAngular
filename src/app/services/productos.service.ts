@@ -96,3 +96,5 @@ export class ProductosService {
 
 
 }
+
+// para probarlo en un servidor de pureba hay q meterse dentro de dist y dentro del proyecto
